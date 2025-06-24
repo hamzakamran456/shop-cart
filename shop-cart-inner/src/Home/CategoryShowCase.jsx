@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import shapeOne from "../assets/images/shape-img/icon/01.png";
+import shapeTwo from "../assets/images/shape-img/icon/02.png";
+import Ratting from "../components/Ratting";
+import { Link } from "react-router-dom";
 
 const title = "Our Products";
 
@@ -79,23 +83,70 @@ const ProductData = [
 
 const CategoryShowCase = () => {
   const [items, setItems] = useState(ProductData);
+
+  const filterItem = (cateItem) => {
+    const updateItems = ProductData.filter((currElem) => {
+      return currElem.cate === cateItem;
+    });
+    setItems(updateItems);
+  };
+
   return (
     <div className="course-section style-3 padding-tb">
       <div className="course-shape one">
-        <img
-          src="/shop-cart-inner/src/assets/images/shape-img/icon/01.png"
-          alt=""
-        />
+        <img src={shapeOne} alt="" />
       </div>
       <div className="course-shape two">
-        <img
-          src="/shop-cart-inner/src/assets/images/shape-img/icon/02.png"
-          alt=""
-        />
+        <img src={shapeTwo} alt="" />
       </div>
       <div className="container">
         <div className="section-header">
           <h2>{title}</h2>
+          <div className="course-filter-group">
+            <ul className="lab-ul">
+              <li onClick={() => setItems(ProductData)}>All</li>
+              <li onClick={() => filterItem("Shoes")}>Shoes</li>
+              <li onClick={() => filterItem("Bags")}>Bags</li>
+              <li onClick={() => filterItem("Phones")}>Phones</li>
+              <li onClick={() => filterItem("Beauty")}>Beauty</li>
+            </ul>
+          </div>
+        </div>
+        <div className="section-wrapper">
+          <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 course-filter">
+            {items.map((products) => (
+              <div key={products.id} className="col">
+                <div className="course-item style-4">
+                  <div className="course-inner">
+                    <div className="course-thumb">
+                      <img src={products.imgUrl} alt="" />
+                      <div className="course-category">
+                        <div className="course-cate">
+                          <a href="#">{products.cate}</a>
+                        </div>
+                        <div className="course-reiew">
+                          <Ratting />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="course-content">
+                      <Link to={`/shop/${products.id}`}>
+                        <h5>{products.title}</h5>
+                      </Link>
+                      <div className="course-footer">
+                        <div className="course-author">
+                          <Link to="/" className="ca-name">
+                            {products.brand}
+                          </Link>
+                        </div>
+                        <div className="course-price">{products.price}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
