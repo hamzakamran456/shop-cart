@@ -15,7 +15,7 @@ const Register = () => {
   return (
     <section className="register-section padding-tb pb-0">
       <div className="container">
-        <div className="row g-4 row-cols-lg-2 row-cols-lg align-items-center">
+        <div className="row g-4 row-cols-lg-2 row-cols-1 align-items-center">
           <div className="col">
             <div className="section-header">
               <span className="subtitle">{subTitle}</span>

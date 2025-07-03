@@ -1,51 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const title = "More Then 60,000 Customers";
-
 const desc =
   "Buy products on your any device with our app & enjoy your time what you want. Just download & install & start to shopping";
+import avaterImg from "../../src/assets/images/clients/avater.jpg";
 
 const clientsList = [
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "United States",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "Canada",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "United Kingdom",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "Pakistan",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "Germany",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "Australia",
   },
   {
-    imgUrl: "/src/assets/images/clients/avater.jpg",
-    imgAlt: "education thumb rajibraj91 rajibraj",
-    text: "Join with Us",
+    imgUrl: avaterImg,
+    imgAlt: "education thumb hamza91 hamzakamran",
+    text: "Brazil",
   },
 ];
 
 const LocationSprade = () => {
   return (
-    <div className="clients-section style-4 padding-tb">
+    <div className="clients-section style-2 padding-tb">
       <div className="container">
         <div className="section-header text-center">
           <h2 className="title">{title}</h2>
@@ -59,7 +59,7 @@ const LocationSprade = () => {
                   <span>{val.text}</span>
                 </Link>
                 <div className="client-thumb">
-                  <img src={val.imgUrl} alt="" />
+                  <img src={val.imgUrl} alt={val.imgAlt} />
                 </div>
               </div>
             ))}
