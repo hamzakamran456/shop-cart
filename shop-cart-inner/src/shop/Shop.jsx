@@ -2,12 +2,25 @@ import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import Data from "../products.json";
 import ProductCards from "./ProductCards";
+import Pagination from "./Pagination";
 const showResults = "Showing 01 - 12 of 139 Results";
 
 const Shop = () => {
   const [GridList, setGridList] = useState(true);
-  const [products, setProducts] = useState(Data);
-  
+  const [products] = useState(Data);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const productPerPage = 10;
+  const indexofLastProduct = currentPage * productPerPage;
+  const indexofFirstProduct = indexofLastProduct - productPerPage;
+  const currentProducts = products.slice(
+    indexofFirstProduct,
+    indexofLastProduct
+  );
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div>
@@ -24,17 +37,26 @@ const Shop = () => {
                       GridList ? "gridActive" : "listActive"
                     }`}
                   >
-                    <a className="grid" onClick={() => setGridList(!GridList)}>
+                    <a className="grid" onClick={() => setGridList(true)}>
                       <i className="icofont-ghost"></i>
                     </a>
-                    <a className="list" onClick={() => setGridList(!GridList)}>
+                    <a className="list" onClick={() => setGridList(false)}>
                       <i className="icofont-listine-dots"></i>
                     </a>
                   </div>
                 </div>
                 <div>
-                  <ProductCards GridList={GridList} products={products} />
+                  <ProductCards
+                    GridList={GridList}
+                    products={currentProducts}
+                  />
                 </div>
+                <Pagination
+                  productPerPage={productPerPage}
+                  totalProducts={products.length}
+                  paginate={paginate}
+                  activePage={currentPage}
+                />
               </article>
             </div>
             <div className="col-lg-4 col-12"></div>

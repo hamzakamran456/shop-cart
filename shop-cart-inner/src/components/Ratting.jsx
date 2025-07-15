@@ -1,16 +1,16 @@
 import React from "react";
 
 const Ratting = () => {
+  const starStyle = { color: "#ffdf40" };
+
   return (
-    <div>
-      <span className="rating">
-        <i className="icofont-ui-rating"></i>
-        <i className="icofont-ui-rating"></i>
-        <i className="icofont-ui-rating"></i>
-        <i className="icofont-ui-rating"></i>
-        <i className="icofont-ui-rating"></i>
-      </span>
-    </div>
+    <span className="rating">
+      <i className="icofont-ui-rating" style={starStyle}></i>
+      <i className="icofont-ui-rating" style={starStyle}></i>
+      <i className="icofont-ui-rating" style={starStyle}></i>
+      <i className="icofont-ui-rating" style={starStyle}></i>
+      <i className="icofont-ui-rating" style={starStyle}></i>
+    </span>
   );
 };
 
