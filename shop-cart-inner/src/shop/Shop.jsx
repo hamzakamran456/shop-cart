@@ -3,12 +3,17 @@ import PageHeader from "../components/PageHeader";
 import Data from "../products.json";
 import ProductCards from "./ProductCards";
 import Pagination from "./Pagination";
+import Search from "./Search";
+import ShopCategory from "./ShopCategory";
+import PopularPost from "./PopularPost";
+import Tags from "./Tags";
 const showResults = "Showing 01 - 12 of 139 Results";
 
 const Shop = () => {
   const [GridList, setGridList] = useState(true);
-  const [products] = useState(Data);
+  const [products, setProducts] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const productPerPage = 10;
   const indexofLastProduct = currentPage * productPerPage;
@@ -20,6 +25,15 @@ const Shop = () => {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const menuItems = [...new Set(Data.map((Val) => Val.category))];
+  const filterItem = (curcat) => {
+    const newItem = Data.filter((newVal) => {
+      return newVal.category === curcat;
+    });
+    setSelectedCategory(curcat);
+    setProducts(newItem);
   };
 
   return (
@@ -59,7 +73,20 @@ const Shop = () => {
                 />
               </article>
             </div>
-            <div className="col-lg-4 col-12"></div>
+            <div className="col-lg-4 col-12">
+              <aside>
+                <Search products={products} GridList={GridList} />
+                <ShopCategory
+                  filterItem={filterItem}
+                  setItem={setProducts}
+                  menuItems={menuItems}
+                  setProducts={setProducts}
+                  selectedCategory={selectedCategory}
+                />
+                <PopularPost />
+                <Tags />
+              </aside>
+            </div>
           </div>
         </div>
       </div>
