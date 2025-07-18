@@ -4,7 +4,7 @@ const desc =
   "Energistia an deliver atactica metrcs after avsionary Apropria trnsition enterpris an sources applications emerging psd template.";
 
 const ProductDisplay = ({ item }) => {
-  const { name, id, price, seller, ratingsCount, quantity } = item;
+  const { name, id, price, seller, ratingsCount, quantity, img } = item;
 
   const [prequantity, setQuantity] = useState(quantity);
   const [coupons, setCoupons] = useState("");
@@ -27,6 +27,30 @@ const ProductDisplay = ({ item }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const product = {
+      id: id,
+      img: img,
+      name: name,
+      price: price,
+      quantity: prequantity,
+      size: size,
+      color: color,
+      coupons: coupons,
+    };
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProductIndex = existingCart.findIndex(
+      (item) => item.id === id
+    );
+    if (existingProductIndex !== -1) {
+      existingCart[existingProductIndex].quantity == prequantity;
+    } else {
+      existingCart.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    setQuantity(1);
+    setSize("Select Size");
+    setColor("Select Color");
+    setCoupons("");
   };
 
   return (
