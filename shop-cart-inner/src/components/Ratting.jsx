@@ -1,7 +1,7 @@
 import React from "react";
 
-const Ratting = () => {
-  const starStyle = { color: "#e9ba17", marginBottom: "10px" };
+const Ratting = ({ color = "#e9ba17" }) => {
+  const starStyle = { color };
 
   return (
     <span className="rating">
