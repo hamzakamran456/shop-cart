@@ -118,7 +118,7 @@ const SingleBlog = () => {
                                   />
                                   <a
                                     href="https://youtu.be/pjEC9d28SKM?si=Lh-6ruJInD11Xn8w"
-                                    className="video-button popup"
+                                    className="video-button popup" target="_blank"
                                   >
                                     <i className="icofont-ui-play"></i>
                                   </a>
