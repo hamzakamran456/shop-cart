@@ -21,6 +21,9 @@ import CartPage from "./shop/CartPage.jsx";
 import SingleBlog from "./Blog/SingleBlog.jsx";
 import About from "./About/About.jsx";
 import Contact from "./ContactPage/Contact.jsx";
+import AuthProviders from "./contexts/AuthProviders.jsx";
+import Login from "./components/Login.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,10 +64,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "sign-up",
+    element: <SignUp />,
+  },
 ]);
 
 ReactDom.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <AuthProviders>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </AuthProviders>
 );
