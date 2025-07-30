@@ -24,6 +24,7 @@ import Contact from "./ContactPage/Contact.jsx";
 import AuthProviders from "./contexts/AuthProviders.jsx";
 import Login from "./components/Login.jsx";
 import SignUp from "./components/SignUp.jsx";
+import Settings from "./Setting/Settings.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/settings",
+        element: <Settings />,
       },
     ],
   },

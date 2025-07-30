@@ -1,12 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProviders";
-import {
-  Link,
-  Links,
-  replace,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import Swal from "sweetalert2";
+import { Link, replace, useLocation, useNavigate } from "react-router-dom";
 
 const title = "Login";
 const socialTitle = "Login with Social Media";
